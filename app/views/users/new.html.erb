@@ -1,0 +1,51 @@
+<div id = "center">
+<br><br>
+<h1>Please fill out this form for unknown dodgy reasons:</h1>
+<br><br>
+</div>
+
+<!--
+<form action="/" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> 
+  Your name:
+  <input type="string" name="username"><br><br>
+  Your email: 
+  <input type="string" name="email"><br><br>
+  Your bio:
+  <input type="string" name="bio"><br><br>
+  <input type="submit" value="Valider">
+</form>
+-->
+
+<!--
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+  <%= label_tag 'Ton nom:' %>
+  <%= text_field_tag 'username', @user.username %>
+  <br><br>
+  <%= label_tag 'Ton email:' %>
+  <%= text_field_tag 'email', @user.email %>
+  <br><br>
+  <%= label_tag 'Ta bio:' %>
+  <%= text_field_tag 'bio', @user.bio %>
+  <br><br>
+  <%= submit_tag "Valider" %>
+<% end %>
+-->
+
+<div id="center">
+<%= form_for @user, url: {action: "create"} do |f| %>
+  <%= f.text_field :username, class: "form-control form-control-lg", placeholder: "NAME" %>
+  <br>
+  <%= f.text_field :email, class: "form-control form-control-lg", placeholder: "EMAIL" %>
+  <br>
+  <%= f.text_field :bio, class: "form-control form-control-lg", placeholder: "BIO" %>
+  <br>
+  <div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" id="customCheck1">
+  <label class="custom-control-label" for="customCheck1">Check this custom checkbox. If you don't want to, then don't.</label>
+  </div>
+  <br><br>
+  <%= f.submit "Send", class: "btn btn-primary btn-lg" %>
+<% end %>
+</div>
+
